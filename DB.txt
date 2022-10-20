@@ -1,0 +1,8 @@
+Server:10.1.100.22
+IISWebAlias:DcPublisher
+Instance:abr-web\abr_web
+User:Sa
+Pass:Nav@2018
+PubName:ABR-SYNC
+PubDB:ABR-DB-Sync
+DCDB:ABR-DC

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="WebDevicePrint">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="storeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="deviceID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printerNameDc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printerIP" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="printerPortIn" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WebDevicePrint_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="userID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InitPrint">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="labelCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InitPrint_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="WriteLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="ePL_Line" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="WriteLine_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="PrintLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="ePL_Line" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PrintLine_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="AlignAmount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="amount" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AlignAmount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AlignAmountLL">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="amount" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AlignAmountLL_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AlignAmountDes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="charCount" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="type" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AlignAmountDes_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBarcodeType">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="barcodeNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetBarcodeType_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Code2Int">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="pCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Code2Int_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="UpdateLabelStatus">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="UpdateLabelStatus_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SaveLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="ePL_Line" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SaveLine_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CloseFile">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CloseFile_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="WebDevicePrint">
+    <part name="parameters" element="tns:WebDevicePrint" />
+  </message>
+  <message name="WebDevicePrint_Result">
+    <part name="parameters" element="tns:WebDevicePrint_Result" />
+  </message>
+  <message name="InitPrint">
+    <part name="parameters" element="tns:InitPrint" />
+  </message>
+  <message name="InitPrint_Result">
+    <part name="parameters" element="tns:InitPrint_Result" />
+  </message>
+  <message name="WriteLine">
+    <part name="parameters" element="tns:WriteLine" />
+  </message>
+  <message name="WriteLine_Result">
+    <part name="parameters" element="tns:WriteLine_Result" />
+  </message>
+  <message name="PrintLine">
+    <part name="parameters" element="tns:PrintLine" />
+  </message>
+  <message name="PrintLine_Result">
+    <part name="parameters" element="tns:PrintLine_Result" />
+  </message>
+  <message name="AlignAmount">
+    <part name="parameters" element="tns:AlignAmount" />
+  </message>
+  <message name="AlignAmount_Result">
+    <part name="parameters" element="tns:AlignAmount_Result" />
+  </message>
+  <message name="AlignAmountLL">
+    <part name="parameters" element="tns:AlignAmountLL" />
+  </message>
+  <message name="AlignAmountLL_Result">
+    <part name="parameters" element="tns:AlignAmountLL_Result" />
+  </message>
+  <message name="AlignAmountDes">
+    <part name="parameters" element="tns:AlignAmountDes" />
+  </message>
+  <message name="AlignAmountDes_Result">
+    <part name="parameters" element="tns:AlignAmountDes_Result" />
+  </message>
+  <message name="GetBarcodeType">
+    <part name="parameters" element="tns:GetBarcodeType" />
+  </message>
+  <message name="GetBarcodeType_Result">
+    <part name="parameters" element="tns:GetBarcodeType_Result" />
+  </message>
+  <message name="Code2Int">
+    <part name="parameters" element="tns:Code2Int" />
+  </message>
+  <message name="Code2Int_Result">
+    <part name="parameters" element="tns:Code2Int_Result" />
+  </message>
+  <message name="UpdateLabelStatus">
+    <part name="parameters" element="tns:UpdateLabelStatus" />
+  </message>
+  <message name="UpdateLabelStatus_Result">
+    <part name="parameters" element="tns:UpdateLabelStatus_Result" />
+  </message>
+  <message name="SaveLine">
+    <part name="parameters" element="tns:SaveLine" />
+  </message>
+  <message name="SaveLine_Result">
+    <part name="parameters" element="tns:SaveLine_Result" />
+  </message>
+  <message name="CloseFile">
+    <part name="parameters" element="tns:CloseFile" />
+  </message>
+  <message name="CloseFile_Result">
+    <part name="parameters" element="tns:CloseFile_Result" />
+  </message>
+  <portType name="PrintUtilCU_Port">
+    <operation name="WebDevicePrint">
+      <input name="WebDevicePrint" message="tns:WebDevicePrint" />
+      <output name="WebDevicePrint_Result" message="tns:WebDevicePrint_Result" />
+    </operation>
+    <operation name="InitPrint">
+      <input name="InitPrint" message="tns:InitPrint" />
+      <output name="InitPrint_Result" message="tns:InitPrint_Result" />
+    </operation>
+    <operation name="WriteLine">
+      <input name="WriteLine" message="tns:WriteLine" />
+      <output name="WriteLine_Result" message="tns:WriteLine_Result" />
+    </operation>
+    <operation name="PrintLine">
+      <input name="PrintLine" message="tns:PrintLine" />
+      <output name="PrintLine_Result" message="tns:PrintLine_Result" />
+    </operation>
+    <operation name="AlignAmount">
+      <input name="AlignAmount" message="tns:AlignAmount" />
+      <output name="AlignAmount_Result" message="tns:AlignAmount_Result" />
+    </operation>
+    <operation name="AlignAmountLL">
+      <input name="AlignAmountLL" message="tns:AlignAmountLL" />
+      <output name="AlignAmountLL_Result" message="tns:AlignAmountLL_Result" />
+    </operation>
+    <operation name="AlignAmountDes">
+      <input name="AlignAmountDes" message="tns:AlignAmountDes" />
+      <output name="AlignAmountDes_Result" message="tns:AlignAmountDes_Result" />
+    </operation>
+    <operation name="GetBarcodeType">
+      <input name="GetBarcodeType" message="tns:GetBarcodeType" />
+      <output name="GetBarcodeType_Result" message="tns:GetBarcodeType_Result" />
+    </operation>
+    <operation name="Code2Int">
+      <input name="Code2Int" message="tns:Code2Int" />
+      <output name="Code2Int_Result" message="tns:Code2Int_Result" />
+    </operation>
+    <operation name="UpdateLabelStatus">
+      <input name="UpdateLabelStatus" message="tns:UpdateLabelStatus" />
+      <output name="UpdateLabelStatus_Result" message="tns:UpdateLabelStatus_Result" />
+    </operation>
+    <operation name="SaveLine">
+      <input name="SaveLine" message="tns:SaveLine" />
+      <output name="SaveLine_Result" message="tns:SaveLine_Result" />
+    </operation>
+    <operation name="CloseFile">
+      <input name="CloseFile" message="tns:CloseFile" />
+      <output name="CloseFile_Result" message="tns:CloseFile_Result" />
+    </operation>
+  </portType>
+  <binding name="PrintUtilCU_Binding" type="tns:PrintUtilCU_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="WebDevicePrint">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:WebDevicePrint" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="WebDevicePrint">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="WebDevicePrint_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InitPrint">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:InitPrint" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InitPrint">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InitPrint_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="WriteLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:WriteLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="WriteLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="WriteLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PrintLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:PrintLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PrintLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PrintLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AlignAmount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:AlignAmount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AlignAmount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AlignAmount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AlignAmountLL">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:AlignAmountLL" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AlignAmountLL">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AlignAmountLL_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AlignAmountDes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:AlignAmountDes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AlignAmountDes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AlignAmountDes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetBarcodeType">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:GetBarcodeType" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetBarcodeType">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetBarcodeType_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Code2Int">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:Code2Int" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Code2Int">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Code2Int_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="UpdateLabelStatus">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:UpdateLabelStatus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="UpdateLabelStatus">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="UpdateLabelStatus_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SaveLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:SaveLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SaveLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SaveLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CloseFile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/PrintUtilCU:CloseFile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CloseFile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CloseFile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PrintUtilCU">
+    <port name="PrintUtilCU_Port" binding="tns:PrintUtilCU_Binding">
+      <address location="http://10.1.100.22:7047/ABRWEB/WS/Bsat%20Supermarket%20S.A.L/Codeunit/PrintUtilCU" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

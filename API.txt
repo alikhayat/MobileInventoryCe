@@ -1,0 +1,5 @@
+ServerIP:10.1.100.22
+InstanceName:ABRWEB
+SoapPort:7047
+
+

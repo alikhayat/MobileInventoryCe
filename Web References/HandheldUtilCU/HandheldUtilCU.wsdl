@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="LastActionNo">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="LastActionNo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRetailPrice">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="varCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="uOM" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetRetailPrice_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetShelfLabel">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bcode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetShelfLabel_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDeviceCounters">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="deviceID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDeviceCounters_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDeviceCounters2">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="deviceID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetDeviceCounters2_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ConfirmPickingReceiving">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ConfirmPickingReceiving_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostPickingReceiving">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostPickingReceiving_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostTransOut">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="sessionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="print" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostTransOut_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTransferOrder">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="transferOrderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetTransferOrder_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MarkTransferArrival">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="user" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="transferOrderNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="differenceExists" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="MarkTransferArrival_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobAssign">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jobNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="terminalAssigned" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="handheldUserID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobAssign_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobComplete">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jobNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="labelSessionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="terminalAssigned" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="handheldUserID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobComplete_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobUnassign">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jobNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="terminalAssigned" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="handheldUserID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobUnassign_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobLineImplement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="jobNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LabelJobLineImplement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="LastActionNo">
+    <part name="parameters" element="tns:LastActionNo" />
+  </message>
+  <message name="LastActionNo_Result">
+    <part name="parameters" element="tns:LastActionNo_Result" />
+  </message>
+  <message name="GetRetailPrice">
+    <part name="parameters" element="tns:GetRetailPrice" />
+  </message>
+  <message name="GetRetailPrice_Result">
+    <part name="parameters" element="tns:GetRetailPrice_Result" />
+  </message>
+  <message name="GetShelfLabel">
+    <part name="parameters" element="tns:GetShelfLabel" />
+  </message>
+  <message name="GetShelfLabel_Result">
+    <part name="parameters" element="tns:GetShelfLabel_Result" />
+  </message>
+  <message name="GetDeviceCounters">
+    <part name="parameters" element="tns:GetDeviceCounters" />
+  </message>
+  <message name="GetDeviceCounters_Result">
+    <part name="parameters" element="tns:GetDeviceCounters_Result" />
+  </message>
+  <message name="GetDeviceCounters2">
+    <part name="parameters" element="tns:GetDeviceCounters2" />
+  </message>
+  <message name="GetDeviceCounters2_Result">
+    <part name="parameters" element="tns:GetDeviceCounters2_Result" />
+  </message>
+  <message name="ConfirmPickingReceiving">
+    <part name="parameters" element="tns:ConfirmPickingReceiving" />
+  </message>
+  <message name="ConfirmPickingReceiving_Result">
+    <part name="parameters" element="tns:ConfirmPickingReceiving_Result" />
+  </message>
+  <message name="PostPickingReceiving">
+    <part name="parameters" element="tns:PostPickingReceiving" />
+  </message>
+  <message name="PostPickingReceiving_Result">
+    <part name="parameters" element="tns:PostPickingReceiving_Result" />
+  </message>
+  <message name="PostTransOut">
+    <part name="parameters" element="tns:PostTransOut" />
+  </message>
+  <message name="PostTransOut_Result">
+    <part name="parameters" element="tns:PostTransOut_Result" />
+  </message>
+  <message name="GetTransferOrder">
+    <part name="parameters" element="tns:GetTransferOrder" />
+  </message>
+  <message name="GetTransferOrder_Result">
+    <part name="parameters" element="tns:GetTransferOrder_Result" />
+  </message>
+  <message name="MarkTransferArrival">
+    <part name="parameters" element="tns:MarkTransferArrival" />
+  </message>
+  <message name="MarkTransferArrival_Result">
+    <part name="parameters" element="tns:MarkTransferArrival_Result" />
+  </message>
+  <message name="LabelJobAssign">
+    <part name="parameters" element="tns:LabelJobAssign" />
+  </message>
+  <message name="LabelJobAssign_Result">
+    <part name="parameters" element="tns:LabelJobAssign_Result" />
+  </message>
+  <message name="LabelJobComplete">
+    <part name="parameters" element="tns:LabelJobComplete" />
+  </message>
+  <message name="LabelJobComplete_Result">
+    <part name="parameters" element="tns:LabelJobComplete_Result" />
+  </message>
+  <message name="LabelJobUnassign">
+    <part name="parameters" element="tns:LabelJobUnassign" />
+  </message>
+  <message name="LabelJobUnassign_Result">
+    <part name="parameters" element="tns:LabelJobUnassign_Result" />
+  </message>
+  <message name="LabelJobLineImplement">
+    <part name="parameters" element="tns:LabelJobLineImplement" />
+  </message>
+  <message name="LabelJobLineImplement_Result">
+    <part name="parameters" element="tns:LabelJobLineImplement_Result" />
+  </message>
+  <portType name="HandheldUtilCU_Port">
+    <operation name="LastActionNo">
+      <input name="LastActionNo" message="tns:LastActionNo" />
+      <output name="LastActionNo_Result" message="tns:LastActionNo_Result" />
+    </operation>
+    <operation name="GetRetailPrice">
+      <input name="GetRetailPrice" message="tns:GetRetailPrice" />
+      <output name="GetRetailPrice_Result" message="tns:GetRetailPrice_Result" />
+    </operation>
+    <operation name="GetShelfLabel">
+      <input name="GetShelfLabel" message="tns:GetShelfLabel" />
+      <output name="GetShelfLabel_Result" message="tns:GetShelfLabel_Result" />
+    </operation>
+    <operation name="GetDeviceCounters">
+      <input name="GetDeviceCounters" message="tns:GetDeviceCounters" />
+      <output name="GetDeviceCounters_Result" message="tns:GetDeviceCounters_Result" />
+    </operation>
+    <operation name="GetDeviceCounters2">
+      <input name="GetDeviceCounters2" message="tns:GetDeviceCounters2" />
+      <output name="GetDeviceCounters2_Result" message="tns:GetDeviceCounters2_Result" />
+    </operation>
+    <operation name="ConfirmPickingReceiving">
+      <input name="ConfirmPickingReceiving" message="tns:ConfirmPickingReceiving" />
+      <output name="ConfirmPickingReceiving_Result" message="tns:ConfirmPickingReceiving_Result" />
+    </operation>
+    <operation name="PostPickingReceiving">
+      <input name="PostPickingReceiving" message="tns:PostPickingReceiving" />
+      <output name="PostPickingReceiving_Result" message="tns:PostPickingReceiving_Result" />
+    </operation>
+    <operation name="PostTransOut">
+      <input name="PostTransOut" message="tns:PostTransOut" />
+      <output name="PostTransOut_Result" message="tns:PostTransOut_Result" />
+    </operation>
+    <operation name="GetTransferOrder">
+      <input name="GetTransferOrder" message="tns:GetTransferOrder" />
+      <output name="GetTransferOrder_Result" message="tns:GetTransferOrder_Result" />
+    </operation>
+    <operation name="MarkTransferArrival">
+      <input name="MarkTransferArrival" message="tns:MarkTransferArrival" />
+      <output name="MarkTransferArrival_Result" message="tns:MarkTransferArrival_Result" />
+    </operation>
+    <operation name="LabelJobAssign">
+      <input name="LabelJobAssign" message="tns:LabelJobAssign" />
+      <output name="LabelJobAssign_Result" message="tns:LabelJobAssign_Result" />
+    </operation>
+    <operation name="LabelJobComplete">
+      <input name="LabelJobComplete" message="tns:LabelJobComplete" />
+      <output name="LabelJobComplete_Result" message="tns:LabelJobComplete_Result" />
+    </operation>
+    <operation name="LabelJobUnassign">
+      <input name="LabelJobUnassign" message="tns:LabelJobUnassign" />
+      <output name="LabelJobUnassign_Result" message="tns:LabelJobUnassign_Result" />
+    </operation>
+    <operation name="LabelJobLineImplement">
+      <input name="LabelJobLineImplement" message="tns:LabelJobLineImplement" />
+      <output name="LabelJobLineImplement_Result" message="tns:LabelJobLineImplement_Result" />
+    </operation>
+  </portType>
+  <binding name="HandheldUtilCU_Binding" type="tns:HandheldUtilCU_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="LastActionNo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:LastActionNo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LastActionNo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LastActionNo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetRetailPrice">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:GetRetailPrice" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetRetailPrice">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetRetailPrice_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetShelfLabel">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:GetShelfLabel" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetShelfLabel">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetShelfLabel_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetDeviceCounters">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:GetDeviceCounters" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDeviceCounters">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDeviceCounters_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetDeviceCounters2">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:GetDeviceCounters2" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetDeviceCounters2">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetDeviceCounters2_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ConfirmPickingReceiving">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:ConfirmPickingReceiving" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ConfirmPickingReceiving">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ConfirmPickingReceiving_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostPickingReceiving">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:PostPickingReceiving" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostPickingReceiving">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostPickingReceiving_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostTransOut">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:PostTransOut" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostTransOut">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostTransOut_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetTransferOrder">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:GetTransferOrder" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetTransferOrder">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetTransferOrder_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="MarkTransferArrival">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:MarkTransferArrival" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="MarkTransferArrival">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="MarkTransferArrival_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LabelJobAssign">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:LabelJobAssign" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LabelJobAssign">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LabelJobAssign_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LabelJobComplete">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:LabelJobComplete" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LabelJobComplete">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LabelJobComplete_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LabelJobUnassign">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:LabelJobUnassign" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LabelJobUnassign">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LabelJobUnassign_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LabelJobLineImplement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HandheldUtilCU:LabelJobLineImplement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LabelJobLineImplement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LabelJobLineImplement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="HandheldUtilCU">
+    <port name="HandheldUtilCU_Port" binding="tns:HandheldUtilCU_Binding">
+      <address location="http://10.1.100.22:7047/ABRWEB/WS/Bsat%20Supermarket%20S.A.L/Codeunit/HandheldUtilCU" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
